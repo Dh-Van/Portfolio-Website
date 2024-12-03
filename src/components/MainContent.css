@@ -1,0 +1,38 @@
+.main-content {
+  margin-top: 60px; /* Adjust this value based on the height of your navbar */
+  height: calc(100vh - 60px); /* Adjust this value based on the height of your navbar */
+  background-color: #333; /* Match the background color of the navbar */
+  padding: 20px;
+  position: relative;
+}
+
+.main-content-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* Ensure text is visible on dark background */
+}
+
+.main-content h1, .main-content h2 {
+  margin: 10px 0;
+  font-size: 3em; /* Make the text bigger */
+}
+
+.accent {
+  color: #61dafb; /* Accent color */
+}
+
+.main-content button {
+  margin-top: 20px;
+  padding: 15px 30px; /* Make the button bigger */
+  font-size: 1.5em; /* Make the button text bigger */
+  background-color: #61dafb; /* Accent color */
+  border: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.main-content button:hover {
+  background-color: #21a1f1;
+}
