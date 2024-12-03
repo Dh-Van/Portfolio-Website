@@ -1,8 +1,32 @@
+.flipping-word-box {
+  display: inline-flex;
+  justify-content: center; /* Center the box horizontally */
+  align-items: center; /* Center the box vertically */
+  border: 2px solid #61dafb; /* Add accented outline */
+  border-radius: 8px; /* Add rounded corners */
+  background-color: rgba(97, 218, 251, 0.1); /* Add a subtle background color */
+  margin: 0 10px; /* Add margin around the box */
+  min-height: 1.4em; /* Decrease the height of the box */
+}
+
+.flipping-word-container {
+  display: inline-flex; /* Change to inline-flex to center content vertically */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  text-align: center; /* Ensure text alignment remains consistent */
+  overflow: hidden; /* Hide overflow to prevent abrupt changes */
+  line-height: normal; /* Use normal line height to ensure text is vertically centered */
+}
 
 .flipping-word {
   display: inline-block;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition for opacity and size */
   transform-origin: center; /* Ensure scaling happens from the center */
+  white-space: nowrap; /* Prevent text from wrapping */
+  padding: 0 5px; /* Add padding to ensure text is not cut off */
+  vertical-align: middle; /* Adjust vertical alignment */
+  position: relative;
+  top: -2px; /* Move the text up slightly */
 }
 
 .fade-out {

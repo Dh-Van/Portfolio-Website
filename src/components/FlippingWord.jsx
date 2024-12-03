@@ -1,10 +1,10 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './FlippingWord.css';
 
 function FlippingWord({ words }) {
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isFadingOut, setIsFadingOut] = useState(false);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -22,10 +22,21 @@ function FlippingWord({ words }) {
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
   }, [words]);
 
+  useEffect(() => {
+    if (containerRef.current) {
+      const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b));
+      containerRef.current.style.width = `${longestWord.length}ch`;
+    }
+  }, [words]);
+
   return (
-    <span className={`accent flipping-word ${isFadingOut ? 'fade-out' : 'fade-in'}`}>
-      {currentWord}
-    </span>
+    <div className="flipping-word-box">
+      <span ref={containerRef} className="flipping-word-container">
+        <span className={`accent flipping-word ${isFadingOut ? 'fade-out' : 'fade-in'}`}>
+          {currentWord}
+        </span>
+      </span>
+    </div>
   );
 }
 
